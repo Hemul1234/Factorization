@@ -28,6 +28,8 @@
                 <?php if (!empty($_POST['number'])): ?>
                     <?php
                         $multipliers->getMultipliers($_POST['number']);
+                        $num = $_POST['number'];
+                        $steps = $multipliers->steps;
                         if (count($multipliers->arr) > 1):
                     ?>
                         <p class="result">
@@ -41,13 +43,9 @@
         </div>
         <div class="solution">
             <p class="result">Решение:</p>
-            <?php
-                $num = $_POST['number'];
-                $steps = $multipliers->steps;
-            ?>
             <?php if (count($multipliers->arr) > 1): ?>
                 <p class="result" style="text-align: left;">
-                    <?= $num ?> - не является простым числом
+                    <?= $_POST['number'] ?> - не является простым числом
                 </p>
                 <?php foreach ($multipliers->arr as $elem): ?>
                     <?php if (count($steps) > 1): ?>
@@ -60,7 +58,7 @@
                         </p>
                     <?php endif; ?>
                 <?php endforeach; ?>
-            <?php else: ?>
+            <?php elseif (!empty($num)): ?>
                 <p class="result" style="text-align: left;">
                     <?= $num ?> - простое число
                 </p>
