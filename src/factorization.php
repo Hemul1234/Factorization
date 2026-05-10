@@ -1,5 +1,5 @@
 <?php
-    namespace Calc;
+    namespace src;
     class Factorization {
         public $arr = [];
         public $steps = [];
